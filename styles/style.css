@@ -78,7 +78,7 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -101,7 +101,7 @@ ol {
 
 .search-form__label-text {
   appearance: none;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed',  sans-serif;
 }
 
 .visually-hidden {
@@ -116,15 +116,14 @@ ol {
 
 .search-form__textfield { 
   appearance: none;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.3);
   background: transparent;
   width: 225px;
   border:none;
-  box-shadow: 
-    0 1px rgb(255, 255, 255),
-    0 -1px rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .search-form__textfield:focus {
@@ -154,8 +153,8 @@ ol {
   height: 20px;
   width: 20px;
   background-color: rgb(255, 255, 255);
-  outline: 2px solid rgb(0, 0, 0);
-  outline-offset: -4px;
+  outline: 1px solid rgb(0, 0, 0);
+  outline-offset: -2px;
   margin: 0.5px 0;
   margin-right: 4px;
 } 
@@ -174,12 +173,14 @@ ol {
 /* --- BUTTON --- */
 
 .button {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
   text-align: center;
-
+  border: none;
+  outline: white solid 1px;
+  outline-offset: -1px;
   background-color: transparent;
   color:rgb(255, 255, 255);
 
@@ -193,7 +194,7 @@ ol {
 }
 
 .button:active {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgb(84, 80, 80);
 }
 
 .button:hover {
@@ -202,11 +203,11 @@ ol {
 }
 
 .button:focus {
-  outline: white solid 1px;
+  outline: white double 3px;
   outline-offset: -3px;
 }
 
-button, a, video, input[type='checkbox'] + span{
+.button, a, video, .search-form__label:has(.search-form__checkbox) {
   cursor: pointer;
 }
 
@@ -219,34 +220,30 @@ button, a, video, input[type='checkbox'] + span{
 }
 
 .title {
-  font-family: 'Oswald';
+  font-family: 'Oswald',  sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
   text-align: left;
   text-transform: uppercase;
-  color: rgba(84, 80, 80, 1);
+  color:  rgba(255, 255, 255, 1);
+  margin-top: 2px;
+  margin-left: 2px;
 }
 
 .content__accent {
-  color: rgba(255, 255, 255, 1);
+  color:rgba(84, 80, 80, 1);
 }
 
 .content__list {
-  height: 298px;
+  position: relative;
+  height: 295px;
   margin-top: 28px;
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow-y: scroll;
 }
 
-.content__list-item {
-  height: 103px;
-}
-
-
-
-.content__list-item:not(:last-of-type) {
-  margin-bottom: 34px;
+.content__list-item:not(:last-of-type):not(:first-of-type) {
+  margin-top: 34px;
 }
 
 .content__card-link {
@@ -255,13 +252,18 @@ button, a, video, input[type='checkbox'] + span{
 }
 
 .content__card-link:active .content__video-card-description-container{
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgb(84, 80, 80);
 }
 
 .content__card-link:hover {
   text-decoration: underline;
 }
 
+/*
+не понял комментария. 
+по макету есть аутлайн при фокусе.
+офсет нужен, чтобы аутлайн был с 4х сторон, а не сверху-снизу. 
+*/
 .content__card-link:focus {
   outline: white solid 1px;
   outline-offset: -1px;
@@ -270,16 +272,20 @@ button, a, video, input[type='checkbox'] + span{
 .content__video-card {
   display: flex;
   justify-content: space-between;
+  height: 103px;
 }
 
 .content__video-card-description-container {
-  display: flex;
-  flex-direction: column;
-  width:100%;
+  width:100%; 
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  margin-bottom: 4px;
+  margin-left: 2px;
 }
 
 .content__video-card-title {
-  font-family: 'Oswald';
+  display:block;
+  font-family: 'Oswald',  sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
@@ -288,7 +294,8 @@ button, a, video, input[type='checkbox'] + span{
 }
 
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed';
+  display:block;
+  font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -303,4 +310,5 @@ button, a, video, input[type='checkbox'] + span{
 
 .more-button {
   width: 100%;
+  margin-top: 32px;
 }
