@@ -158,7 +158,7 @@ ol {
   outline-offset: -4px;
   margin: 0.5px 0;
   margin-right: 4px;
-}
+} 
 
 .search-form__label:hover .search-form__label-text {
   text-decoration:underline;
