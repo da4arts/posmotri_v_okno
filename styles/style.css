@@ -147,9 +147,9 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  height: 18px;
-  width: 18px;
-  border: 1px solid #FFFFFF;
+  height: 19px;
+  width: 19px;
+  outline: 1px solid #FFFFFF;
   margin: 0.5px 0;
   margin-right: 5px;
 }
@@ -157,9 +157,9 @@ ol {
 
 .search-form__checkbox[type="checkbox"]:checked + span {
   background-color: rgb(255, 255, 255);
-  height: 17px;
-  width: 17px;
-  border: 1px solid rgb(0, 0, 0);
+  height: 18px;
+  width: 18px;
+  outline: 1px solid rgb(0, 0, 0);
   box-shadow: 
     0 0 0 1px rgb(255, 255, 255);
   margin: 0.5px 1px;
@@ -183,13 +183,13 @@ ol {
 
   background-color: transparent;
   color:rgb(255, 255, 255);
-  border: 1px solid #FFFFFF;
 
-  height: 34px;
+  padding: 6px 0;
 }
 
 .search-form__submit-button {
-  width: 194px;
+  padding-right: 73.5px;
+  padding-left: 73.5px;
   align-self: flex-end;
 }
 
@@ -216,7 +216,7 @@ button, a, video, input[type='checkbox'] + span{
 
 .content__details {
   height: 100%;
-  overflow-y: scroll;
+  min-width: 399px;
 }
 
 .title {
@@ -234,8 +234,10 @@ button, a, video, input[type='checkbox'] + span{
 }
 
 .content__list {
+  height: 298px;
   margin-top: 28px;
-
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .content__list-item {
