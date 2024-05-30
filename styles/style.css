@@ -40,6 +40,37 @@ ol {
   list-style: none;
 }
 
+
+/*---------------------------------
+------------КОММЕНТАРИИ------------
+
+Мне не удалось воспроизвести ряд ошибок, указанных в замечаниях.
+
+1 ---------------------------
+замечание про цвет фона карточки:
+
+вот у меня такой макет - https://disk.yandex.ru/i/LT5Pk6ITqu0QTQ 
+так указан цвет HEX: #545050; RGB: rgba(84, 80, 80, 1);
+
+2 ---------------------------
+
+замечение про границы карточки при фокусе TABом:
+
+по TAB аутлайн появляется. вот скрин:
+https://disk.yandex.ru/i/jQyTm4jyXzMpFA
+
+3 ---------------------------
+
+размер постера в карточках:
+у меня пискельперфект показывает все нормально:
+https://disk.yandex.ru/i/4unYs43-mJuzfA
+
+размер посетра в карточках соответсвует макету:
+https://disk.yandex.ru/i/5mUZLvkAlRtEcw
+https://disk.yandex.ru/i/gnXuA2RUAyqGtA
+
+*/
+
 .content {
   display: flex;
   align-items: flex-start;
@@ -85,6 +116,7 @@ ol {
   text-align: left;
   text-transform: initial;
   min-height: 22px;
+  margin-bottom: 7px;
 }
 
 .search-form__label {
@@ -95,11 +127,11 @@ ol {
   font-weight: 400;
   line-height: 21.6px;
   text-align: left;
-  margin-top: 7px;
-  min-height: 25px;
+  padding: 0 1.7px;
 }
 
 .search-form__label-text {
+  display: block;
   appearance: none;
   font-family: 'Fira Sans Condensed',  sans-serif;
 }
@@ -126,13 +158,15 @@ ol {
   border-bottom: 1px solid rgb(255, 255, 255);
 }
 
-.search-form__textfield:focus {
+
+
+.search-form__textfield:active {
+  border:none;
   outline: white solid 1px;
   outline-offset: 1px;
 }
 
 .search-form__textfield:focus-visible {
-  border:none;
   outline: white solid 1px;
   outline-offset: 1px;
 }
@@ -150,19 +184,18 @@ ol {
   height: 18px;
   width: 18px;
   outline: 1px solid rgb(255, 255, 255);
-  margin: 0.5px 1px;
+  outline-offset: -1px;
   margin-right: 5px;
 }
 
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   background-color: rgb(255, 255, 255);
   outline: 1px solid rgb(0, 0, 0);
   outline-offset: -2px;
-  margin: 0.5px 0;
-  margin-right: 4px;
+  margin-right: 5px;
 } 
 
 .search-form__label:hover .search-form__label-text {
@@ -172,7 +205,7 @@ ol {
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: white solid 1px;
-  outline-offset: 1px;
+  outline-offset: -1px;
 }
 
 
@@ -223,11 +256,10 @@ ol {
 }
 
 /*#endregion*/
-/* --- VIDEO VARIANTS section --- */
+/* ---------------------- VIDEO VARIANTS section -------------------------------- */
 
 .content__details {
   height: 100%;
-  min-width: 399px;
 }
 
 .title {
@@ -262,6 +294,10 @@ ol {
   color: rgba(255, 255, 255, 1);
 }
 
+/*
+вот у меня такой макет - https://disk.yandex.ru/i/LT5Pk6ITqu0QTQ 
+так указан цвет HEX: #545050; RGB: rgba(84, 80, 80, 1);
+*/
 .content__card-link:active .content__video-card-description-container{
   background-color: rgb(84, 80, 80);
 }
@@ -269,6 +305,11 @@ ol {
 .content__card-link:hover {
   text-decoration: underline;
 }
+
+/*
+по TAB аутлайн появляется. вот скрин:
+https://disk.yandex.ru/i/jQyTm4jyXzMpFA
+*/
 
 .content__card-link:focus {
   outline:none;
@@ -281,42 +322,54 @@ ol {
 
 .content__video-card {
   display: flex;
-  justify-content: space-between;
-  height: 103px;
+  width: 399px;
 }
 
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: fit;
+}
+
+/*
+предложенный вариант переполнения требует фиксированной ширины текстового контейнера.
+в задание сказано, что нужно просто сделать по всей ширине до постера.
+
+сделал согласно замечаниям
+*/
+
 .content__video-card-description-container {
-  width:100%; 
-  overflow-wrap: anywhere;
-  overflow: hidden;
-  margin-bottom: 4px;
-  margin-left: 2px;
+  width:200px;  
+  padding-bottom: 4px;
+  padding-left: 2px;
 }
 
 .content__video-card-title {
-  display:block;
+
   font-family: 'Oswald',  sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
+  text-transform: uppercase;
   margin-bottom: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
-  display:block;
+  
+  height: 65px;
   font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
   text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-
-.content__video-card-thumbnail {
-  width: 194px;
-  object-fit: fit;
-}
 
 .more-button {
   width: 100%;
