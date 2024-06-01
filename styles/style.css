@@ -280,25 +280,24 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
 
 .content__list {
   position: relative;
-  height: 295px;
-  margin-top: 28px;
+  height: 293px;
+  min-width: 416px; /* чтобы прелодер по ширине не прыгал */
+  margin-top: 20px;
   overflow-y: scroll;
 }
 
-.content__list-item:not(:last-of-type):not(:first-of-type) {
-  margin-top: 34px;
+.content__list-item:not(:first-of-type) {
+  margin-top: 32px;
 }
 
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
 }
 
-/*
-вот у меня такой макет - https://disk.yandex.ru/i/LT5Pk6ITqu0QTQ 
-так указан цвет HEX: #545050; RGB: rgba(84, 80, 80, 1);
-*/
-.content__card-link:active .content__video-card-description-container{
+
+.content__card-link_current {
   background-color: rgb(84, 80, 80);
 }
 
@@ -306,10 +305,6 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
   text-decoration: underline;
 }
 
-/*
-по TAB аутлайн появляется. вот скрин:
-https://disk.yandex.ru/i/jQyTm4jyXzMpFA
-*/
 
 .content__card-link:focus {
   outline:none;
@@ -322,30 +317,14 @@ https://disk.yandex.ru/i/jQyTm4jyXzMpFA
 
 .content__video-card {
   display: flex;
-  width: 399px;
 }
-
-.content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
-  object-fit: fit;
-}
-
-/*
-предложенный вариант переполнения требует фиксированной ширины текстового контейнера.
-в задание сказано, что нужно просто сделать по всей ширине до постера.
-
-сделал согласно замечаниям
-*/
 
 .content__video-card-description-container {
-  width:200px;  
-  padding-bottom: 4px;
-  padding-left: 2px;
+  margin: 2px 0 4px 2px;
+  width: 200px;
 }
 
 .content__video-card-title {
-
   font-family: 'Oswald',  sans-serif;
   font-size: 30px;
   font-weight: 700;
@@ -359,7 +338,6 @@ https://disk.yandex.ru/i/jQyTm4jyXzMpFA
 }
 
 .content__video-card-description {
-  
   height: 65px;
   font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
@@ -370,6 +348,11 @@ https://disk.yandex.ru/i/jQyTm4jyXzMpFA
   overflow: hidden;
 }
 
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: fill;
+}
 
 .more-button {
   width: 100%;
