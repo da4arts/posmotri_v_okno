@@ -40,37 +40,6 @@ ol {
   list-style: none;
 }
 
-
-/*---------------------------------
-------------КОММЕНТАРИИ------------
-
-Мне не удалось воспроизвести ряд ошибок, указанных в замечаниях.
-
-1 ---------------------------
-замечание про цвет фона карточки:
-
-вот у меня такой макет - https://disk.yandex.ru/i/LT5Pk6ITqu0QTQ 
-так указан цвет HEX: #545050; RGB: rgba(84, 80, 80, 1);
-
-2 ---------------------------
-
-замечение про границы карточки при фокусе TABом:
-
-по TAB аутлайн появляется. вот скрин:
-https://disk.yandex.ru/i/jQyTm4jyXzMpFA
-
-3 ---------------------------
-
-размер постера в карточках:
-у меня пискельперфект показывает все нормально:
-https://disk.yandex.ru/i/4unYs43-mJuzfA
-
-размер посетра в карточках соответсвует макету:
-https://disk.yandex.ru/i/5mUZLvkAlRtEcw
-https://disk.yandex.ru/i/gnXuA2RUAyqGtA
-
-*/
-
 .content {
   display: flex;
   align-items: flex-start;
@@ -99,8 +68,8 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
 
 .search-form {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content:space-between;
+  align-content: space-between;
   margin-top: 16px;
 }
 
@@ -115,36 +84,16 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
   line-height: 21.6px;
   text-align: left;
   text-transform: initial;
-  min-height: 22px;
-  margin-bottom: 7px;
+  height: 22px;
 }
 
 .search-form__label {
   position: relative;
-  display: flex;
-  align-items: center;
+  display: block;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
-  text-align: left;
-  padding: 0 1.7px;
 }
-
-.search-form__label-text {
-  display: block;
-  appearance: none;
-  font-family: 'Fira Sans Condensed',  sans-serif;
-}
-
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-} 
 
 .search-form__textfield { 
   appearance: none;
@@ -156,14 +105,26 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
   border:none;
   border-top: 1px solid rgb(255, 255, 255);
   border-bottom: 1px solid rgb(255, 255, 255);
+  padding: 0;
+  margin-top: 5px;
 }
 
 
 
-.search-form__textfield:active {
-  border:none;
-  outline: white solid 1px;
-  outline-offset: 1px;
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+
+
+
+.search-form__textfield:focus {
+  outline:none;
 }
 
 .search-form__textfield:focus-visible {
@@ -171,31 +132,60 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
   outline-offset: 1px;
 }
 
+.search-form__textfield:active {
+  outline: white solid 1px;
+  outline-offset: -1px;
+}
+
 /* --- CHECKBOX --- */
 
 
 .search-form__checkbox-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 16px;
+  margin-top: 4px;
+}
+
+
+.search-form__checkbox-list .search-form__label {
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  justify-content: space-between;
+  align-content: center;
+  column-gap: 6px;
+}
+
+.search-form__label-text {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  font-family: 'Fira Sans Condensed',  sans-serif;
+  line-height: 1;
+  vertical-align: middle;
+  padding:0;
+  margin-left: -4px;
+}
+
+.search-form__checkbox {
+  margin: 9px 0 0 9px;
 }
 
 .search-form__pseudo-checkbox {
-  height: 18px;
-  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 19px;
+  width: 19px;
   outline: 1px solid rgb(255, 255, 255);
   outline-offset: -1px;
-  margin-right: 5px;
 }
 
-
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  height: 18px;
-  width: 18px;
+  height: 19px;
+  width: 19px;
   background-color: rgb(255, 255, 255);
   outline: 1px solid rgb(0, 0, 0);
   outline-offset: -2px;
-  margin-right: 5px;
 } 
 
 .search-form__label:hover .search-form__label-text {
@@ -205,7 +195,7 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: white solid 1px;
-  outline-offset: -1px;
+  outline-offset: 2px;
 }
 
 
@@ -222,8 +212,7 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
   outline-offset: -1px;
   background-color: transparent;
   color:rgb(255, 255, 255);
-
-  padding: 6px 0;
+  padding: 5px 0;
 }
 
 .search-form__submit-button {
@@ -280,8 +269,8 @@ https://disk.yandex.ru/i/gnXuA2RUAyqGtA
 
 .content__list {
   position: relative;
-  height: 293px;
-  min-width: 416px; /* чтобы прелодер по ширине не прыгал */
+  height: 298px;
+  min-width: 416px; 
   margin-top: 20px;
   overflow-y: scroll;
 }
