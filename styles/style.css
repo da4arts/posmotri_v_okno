@@ -205,14 +205,14 @@ ol {
   font-family: 'Fira Sans Condensed',  sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 21.6px;
+  line-height: 1;
   text-align: center;
   border: none;
   outline: white solid 1px;
   outline-offset: -1px;
   background-color: transparent;
   color:rgb(255, 255, 255);
-  padding: 5px 0;
+  padding: 8px 0;
 }
 
 .search-form__submit-button {
@@ -269,8 +269,8 @@ ol {
 
 .content__list {
   position: relative;
-  height: 298px;
-  min-width: 416px; 
+  height: 297px;
+  min-width: 399px; 
   margin-top: 20px;
   overflow-y: scroll;
 }
